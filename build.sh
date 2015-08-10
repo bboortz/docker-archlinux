@@ -1,8 +1,9 @@
 #!/bin/bash
 set -e
+set -u
 
 # Change your to your user if this is a unique new image.
-USER="hoverbear"
+USER="bboortz"
 
 # Dependencies
 function check () {
@@ -18,15 +19,24 @@ check curl
 ###
 # Make some space
 ###
-mkdir archbuild
+if [ -d archbuild ]; then
+	sudo ./cleanup.sh
+else
+	mkdir archbuild
+fi
+
 cd archbuild
 
 ###
 # Get the Image
 ###
 VERSION=$(curl https://mirrors.kernel.org/archlinux/iso/latest/ | grep -Poh '(?<=archlinux-bootstrap-)\d*\.\d*\.\d*(?=\-x86_64)' | head -n 1)
-curl https://mirrors.kernel.org/archlinux/iso/latest/archlinux-bootstrap-$VERSION-x86_64.tar.gz > archlinux-bootstrap-$VERSION-x86_64.tar.gz
-curl https://mirrors.kernel.org/archlinux/iso/latest/archlinux-bootstrap-$VERSION-x86_64.tar.gz.sig > archlinux-bootstrap-$VERSION-x86_64.tar.gz.sig
+if [ ! -f archlinux-bootstrap-$VERSION-x86_64.tar.gz ]; then
+        curl https://mirrors.kernel.org/archlinux/iso/latest/archlinux-bootstrap-$VERSION-x86_64.tar.gz > archlinux-bootstrap-$VERSION-x86_64.tar.gz  
+fi
+if [ ! -f archlinux-bootstrap-$VERSION-x86_64.tar.gz.sig ]; then
+        curl https://mirrors.kernel.org/archlinux/iso/latest/archlinux-bootstrap-$VERSION-x86_64.tar.gz.sig > archlinux-bootstrap-$VERSION-x86_64.tar.gz.sig  
+fi
 # Pull Pierre Schmitz PGP Key.
 # http://pgp.mit.edu:11371/pks/lookup?op=vindex&fingerprint=on&exact=on&search=0x4AA4767BBC9C4B1D18AE28B77F2D434B9741E8AC
 gpg --keyserver pgp.mit.edu --recv-keys 9741E8AC
@@ -95,3 +105,4 @@ EOF
 # Test run
 ###
 docker run --rm=true $USER/archlinux echo "Success, $USER/archlinux prepared."
+

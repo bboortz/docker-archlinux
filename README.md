@@ -1,4 +1,10 @@
-Article at [my site](http://www.hoverbear.org/2014/07/12/arch-docker-baseimage/).
+### Description ###
+
+Fork from https://github.com/Hoverbear/docker-archlinux.
+
+
+Article at [hoverbear's site](http://www.hoverbear.org/2014/07/12/arch-docker-baseimage/).
+
 
 ### Dependencies ###
 You'll need:
@@ -11,6 +17,11 @@ You'll need:
 This should work on almost any distro.
 
 ### Building ###
-Pull the script, run it.
+* Pull the script
+* Change the variable `$USER` at top of the script build.sh if you'd like to have it under a different name.
+* ./build.sh
 
-Change the `$USER` at the bottom if you'd like to have it under a different name.
+### cleaning up ###
+* cleanup.sh
+
+
