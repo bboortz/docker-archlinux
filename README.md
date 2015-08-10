@@ -1,7 +1,5 @@
 ### Description ###
-
 Fork from https://github.com/Hoverbear/docker-archlinux.
-
 
 Article at [hoverbear's site](http://www.hoverbear.org/2014/07/12/arch-docker-baseimage/).
 
@@ -22,6 +20,6 @@ This should work on almost any distro.
 * ./build.sh
 
 ### cleaning up ###
-* cleanup.sh
+* ./cleanup.sh
 
 
