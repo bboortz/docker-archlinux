@@ -1,6 +1,6 @@
 #!/bin/sh
 
-ROOT_DIRS="root.x86_64 root.ARM-armv7"
+ROOT_DIRS="root.x86-64 root.ARM-armv7"
 
 if [ -d archbuild ]; then
 	cd archbuild

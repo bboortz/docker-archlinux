@@ -13,16 +13,16 @@ cd archbuild
 VERSION=$(curl https://mirrors.kernel.org/archlinux/iso/latest/ | grep -Poh '(?<=archlinux-bootstrap-)\d*\.\d*\.\d*(?=\-x86_64)' | head -n 1)
 download "https://mirrors.kernel.org/archlinux/iso/latest/archlinux-bootstrap-$VERSION-x86_64.tar.gz" archlinux-bootstrap-$VERSION-x86_64.tar.gz
 download "https://mirrors.kernel.org/archlinux/iso/latest/archlinux-bootstrap-$VERSION-x86_64.tar.gz.sig" archlinux-bootstrap-$VERSION-x86_64.tar.gz.sig
-check_download "archlinux-bootstrap-$VERSION-x86_64.tar.gz.sig"
+#check_download "archlinux-bootstrap-$VERSION-x86_64.tar.gz.sig"
 
 # Extract
-mkdir root.ARM-${ARCH}
-sudo tar zxf ArchLinuxARM-armv7-latest.tar.gz -C root.${ARCH} > /dev/null
+mkdir root.${ARCH}
+sudo tar zxf archlinux-bootstrap-$VERSION-x86_64.tar.gz -C root.${ARCH} > /dev/null
 
 ###
 # Do necessary install steps.
 ###
-sudo ./root.x86_64/bin/arch-chroot root.x86_64 << EOF
+sudo ./root.x86-64/bin/arch-chroot root.x86_64 << EOF
 	# Setup a mirror.
 	echo 'Server = https://mirrors.kernel.org/archlinux/\$repo/os/\$arch' > /etc/pacman.d/mirrorlist
 	# Setup Keys
