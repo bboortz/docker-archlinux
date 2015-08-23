@@ -38,6 +38,16 @@ function download() {
 	fi
 }
 
+function git_clone() {
+	local url="${1}"
+	local filename="${url##*/}"
+	local branch="$2"
+
+	if [ ! -d "$filename" ]; then
+	    git clone -b $branch "$url"
+	fi
+}
+
 function check_download() {
 	local signaturefile="$1"
 	echo "checking downloaded file ${signaturefile%.sig*} / $signaturefile ..."
