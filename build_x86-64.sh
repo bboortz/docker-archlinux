@@ -17,7 +17,8 @@ download "https://mirrors.kernel.org/archlinux/iso/latest/archlinux-bootstrap-$V
 
 # Extract
 mkdir root.${ARCH}
-sudo tar zxf archlinux-bootstrap-$VERSION-x86_64.tar.gz -C root.${ARCH} > /dev/null
+sudo tar zxf archlinux-bootstrap-$VERSION-x86_64.tar.gz > /dev/null
+mv root.x86_64 root.${ARCH}
 
 ###
 # Do necessary install steps.
