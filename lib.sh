@@ -39,8 +39,8 @@ function download() {
 }
 
 function check_download() {
-	echo "checking downloaded file ${signaturefile%.sig*} / $signaturefile ..."
 	local signaturefile="$1"
+	echo "checking downloaded file ${signaturefile%.sig*} / $signaturefile ..."
 	# Pull Pierre Schmitz PGP Key.
 	# http://pgp.mit.edu:11371/pks/lookup?op=vindex&fingerprint=on&exact=on&search=0x4AA4767BBC9C4B1D18AE28B77F2D434B9741E8AC
 	gpg --keyserver pgp.mit.edu --recv-keys 9741E8AC
