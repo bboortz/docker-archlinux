@@ -16,14 +16,13 @@ download "https://mirrors.kernel.org/archlinux/iso/latest/archlinux-bootstrap-$V
 #check_download "archlinux-bootstrap-$VERSION-x86_64.tar.gz.sig"
 
 # Extract
-mkdir root.${ARCH}
-sudo tar zxf archlinux-bootstrap-$VERSION-x86_64.tar.gz > /dev/null
+tar zxf archlinux-bootstrap-$VERSION-x86_64.tar.gz > /dev/null
 mv root.x86_64 root.${ARCH}
 
 ###
 # Do necessary install steps.
 ###
-sudo ./root.x86-64/bin/arch-chroot root.x86_64 << EOF
+sudo ./root.${ARCH}/bin/arch-chroot root.${ARCH} << EOF
 	# Setup a mirror.
 	echo 'Server = https://mirrors.kernel.org/archlinux/\$repo/os/\$arch' > /etc/pacman.d/mirrorlist
 	# Setup Keys
