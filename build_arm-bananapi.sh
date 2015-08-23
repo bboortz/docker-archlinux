@@ -10,7 +10,7 @@ IMAGE="${USER}/archlinux-${ARCH}"
 cleanup
 cd archbuild
 
-git_clone "https://github.com/LeMaker/linux-bananapi.git" bananapi-3.4
+git_clone "https://github.com/LeMaker/linux-bananapi.git" lemaker-3.4
 cd linux-bananapi
 git pull
 

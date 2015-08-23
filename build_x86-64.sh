@@ -11,8 +11,8 @@ cleanup
 cd archbuild
 
 VERSION=$(curl https://mirrors.kernel.org/archlinux/iso/latest/ | grep -Poh '(?<=archlinux-bootstrap-)\d*\.\d*\.\d*(?=\-x86_64)' | head -n 1)
-download "https://mirrors.kernel.org/archlinux/iso/latest/archlinux-bootstrap-$VERSION-x86_64.tar.gz" archlinux-bootstrap-$VERSION-x86_64.tar.gz
-download "https://mirrors.kernel.org/archlinux/iso/latest/archlinux-bootstrap-$VERSION-x86_64.tar.gz.sig" archlinux-bootstrap-$VERSION-x86_64.tar.gz.sig
+download "https://mirrors.kernel.org/archlinux/iso/latest/archlinux-bootstrap-$VERSION-x86_64.tar.gz" 
+download "https://mirrors.kernel.org/archlinux/iso/latest/archlinux-bootstrap-$VERSION-x86_64.tar.gz.sig" 
 #check_download "archlinux-bootstrap-$VERSION-x86_64.tar.gz.sig"
 
 # Extract

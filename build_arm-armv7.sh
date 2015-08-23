@@ -10,8 +10,8 @@ IMAGE="${USER}/archlinux-${ARCH}"
 cleanup
 cd archbuild
 
-download "http://os.archlinuxarm.org/os/ArchLinuxARM-armv7-latest.tar.gz" ArchLinuxARM-armv7-latest.tar.gz
-download "http://os.archlinuxarm.org/os/ArchLinuxARM-armv7-latest.tar.gz.sig" ArchLinuxARM-armv7-latest.tar.gz.sig
+download "http://os.archlinuxarm.org/os/ArchLinuxARM-armv7-latest.tar.gz" 
+download "http://os.archlinuxarm.org/os/ArchLinuxARM-armv7-latest.tar.gz.sig"
 # check_download "ArchLinuxARM-armv7-latest.tar.gz.sig"
 
 # Extract
