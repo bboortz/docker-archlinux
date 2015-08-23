@@ -15,7 +15,7 @@ download "http://os.archlinuxarm.org/os/ArchLinuxARM-armv7-latest.tar.gz.sig" Ar
 # check_download "ArchLinuxARM-armv7-latest.tar.gz.sig"
 
 # Extract
-mkdir root.ARM-${ARCH}
+mkdir root.${ARCH}
 sudo tar zxf ArchLinuxARM-armv7-latest.tar.gz -C root.${ARCH} > /dev/null
 
 # create devices
