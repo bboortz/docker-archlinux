@@ -1,4 +1,5 @@
 #!/bin/bash
+# see http://watchmysys.com/blog/2014/08/building-banana-pi-lemaker-kernel/
 BASEDIR="${0%/*}"
 . ${BASEDIR}/lib.sh
 
